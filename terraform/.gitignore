@@ -1,0 +1,47 @@
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Exclude all .tfvars files, which are likely to contain sensitive data
+# *.tfvars
+# *.tfvars.json
+
+# We're including terraform.tfvars in version control as it contains non-sensitive defaults
+# But exclude any other tfvars files that might contain sensitive data
+*secret*.tfvars
+*sensitive*.tfvars
+*credentials*.tfvars
+
+# Ignore override files as they are usually used for local dev
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+# Environment files with sensitive data
+.env
+.env.*
+!.env.example
+
+# Keep the example file
+!.env.terraform.example
+
+# Terraform lock files
+.terraform.lock.hcl
+
+# Ignore any local secrets
+*.pem
+*.key
+*secret*
+*credential* 

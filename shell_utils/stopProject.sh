@@ -8,7 +8,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Define project root directory
-PROJECT_ROOT="/home/bcwaters/repo/grok_cmd/grok_cmd"
+PROJECT_ROOT="YOUR_PROJECT_ROOT_HERE"
 
 echo -e "${BLUE}Stopping Grok NestJS Microservices project...${NC}"
 echo "-----------------------------------------------------------"

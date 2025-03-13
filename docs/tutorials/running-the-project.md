@@ -69,16 +69,6 @@ Ensure you have the following installed:
 - npm (v7 or later)
 - Git
 
-### Step 1: Navigate to the Correct Directory
-
-```bash
-cd /home/bcwaters/repo/grok_cmd/grok_cmd/grok-nest-ms
-```
-
-> **Important Note**: Make sure you're using the correct directory. There are two `grok-nest-ms` directories in the project:
-> 1. `/home/bcwaters/repo/grok_cmd/grok_cmd/grok-nest-ms` - This is the **proper NestJS project** to use
-> 2. `/home/bcwaters/repo/grok_cmd/grok-nest-ms` - This is an **extraneous copy** that should be ignored
-
 ### Step 2: Start Infrastructure Services
 
 Start all the infrastructure services using Docker Compose:

@@ -1,22 +1,5 @@
 # Getting Started with Grok NestJS Microservices
 
-## Important Note About Directory Structure
-
-There are two `grok-nest-ms` directories in the project:
-
-1. `/home/bcwaters/repo/grok_cmd/grok_cmd/grok-nest-ms` - This is the **proper NestJS project** with a complete structure including:
-   - Full NestJS configuration files (tsconfig.json, nest-cli.json)
-   - Standard NestJS project structure
-   - Complete package.json with all dependencies
-   - .gitignore and other configuration files
-
-2. `/home/bcwaters/repo/grok_cmd/grok-nest-ms` - This appears to be an **extraneous copy** with:
-   - Partial configuration
-   - Docker and environment files
-   - Some source code
-
-**Use the directory inside grok_cmd/grok_cmd** for your NestJS application development. The instructions below have been updated to reflect this.
-
 ## Prerequisites
 
 - Node.js (v16 or later)

@@ -2,15 +2,6 @@
 
 This guide explains how to properly stop the Grok NestJS Microservices project and its associated services.
 
-## Important Note About Directory Structure
-
-There are two `grok-nest-ms` directories in the project:
-
-1. `/home/bcwaters/repo/grok_cmd/grok_cmd/grok-nest-ms` - This is the **proper NestJS project** to use
-2. `/home/bcwaters/repo/grok_cmd/grok-nest-ms` - This is an **extraneous copy** that should be ignored
-
-Make sure you're in the correct directory (`/home/bcwaters/repo/grok_cmd/grok_cmd/grok-nest-ms`) when running the commands in this guide.
-
 ## Stopping the NestJS Application
 
 If you have the NestJS application running in the foreground or background, follow these steps to stop it:

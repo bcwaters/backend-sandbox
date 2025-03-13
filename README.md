@@ -4,18 +4,16 @@ This directory contains comprehensive documentation for the Grok NestJS Microser
 
 ## Getting Started
 
-- [Getting Started Guide](getting-started.md) - Initial setup and overview
-- [Running the Project](running-the-project.md) - Instructions for starting the project
-- [Stopping the Project](stopping-the-project.md) - Instructions for stopping the project
+- [Getting Started Guide](./docs/getting-started.md) - Initial setup and overview
+- [Running the Project](./docs/running-the-project.md) - Instructions for starting the project
+- [Stopping the Project](./docs/stopping-the-project.md) - Instructions for stopping the project
 
 ## Infrastructure
-
-- [Migrating Infrastructure](migrating-infrastructure.md) - Guide for infrastructure migration
-- [Terraform Guide](terraform-guide.md) - Instructions for using Terraform with this project
+- [Terraform Guide](./docs/terraform-guide.md) - Instructions for using Terraform with this project
 
 ## Tutorials
 
-The [tutorials](tutorials/) directory contains detailed guides for various components of the microservices architecture:
+The [tutorials](./docs/tutorials/) directory contains detailed guides for various components of the microservices architecture:
 
 - **API Gateway** - Tutorials for configuring and using the API Gateway
 - **Authentication Service** - Guides for implementing authentication

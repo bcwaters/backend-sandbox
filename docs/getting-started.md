@@ -221,21 +221,141 @@ The API endpoints are protected by authentication. Follow these steps to registe
 
 ## Troubleshooting
 
-### tsconfig.json Location
+### Common Issues and Solutions
 
-If you encounter issues related to the TypeScript configuration, check if the `tsconfig.json` file is in the correct location. It should be in the `grok-nest-ms` directory. If it's in the parent directory, copy it to the correct location:
+#### Script Failures
+
+If the `startProject.sh` or `stopProject.sh` scripts fail, you can try the following manual commands:
 
 ```bash
-cp ../tsconfig.json .
+# Stop all Docker containers
+sudo docker-compose down
+
+# Start all Docker containers
+sudo docker-compose up -d
+
+# Check running Docker containers
+sudo docker ps
+
+# Check logs for a specific container
+sudo docker logs [container_name]
+
+# Restart a specific container
+sudo docker restart [container_name]
 ```
 
-### Database Connection Issues
+#### NestJS Application Issues
 
-If the application cannot connect to the database, check if the PostgreSQL container is running and if the environment variables in the `.env` file match the database configuration.
+If the NestJS application fails to start:
 
-### Port Conflicts
+```bash
+# Kill any running NestJS processes
+pkill -f "node.*nest start"
+pkill -f "node.*dist/main"
+pkill -f "node.*--enable-source-maps"
 
-If you encounter port conflicts, you can modify the port mappings in the `docker-compose.yml` file and update the corresponding environment variables in the `.env` file.
+# Start the NestJS application manually
+cd grok-nest-ms
+npm run start:dev
+```
+
+#### Database Connection Issues
+
+If the application cannot connect to the database:
+
+```bash
+# Check if PostgreSQL container is running
+sudo docker ps | grep postgres
+
+# Check PostgreSQL logs
+sudo docker logs grok_cmd_postgres_1
+
+# Connect to PostgreSQL directly
+sudo docker exec -it grok_cmd_postgres_1 psql -U admin -d grok_nest_ms
+
+# Check if the users table exists
+sudo docker exec -it grok_cmd_postgres_1 psql -U admin -d grok_nest_ms -c "\dt"
+```
+
+#### Port Conflicts
+
+If you encounter port conflicts:
+
+```bash
+# Check what process is using a specific port (e.g., 3000)
+sudo lsof -i :3000
+
+# Kill the process using a specific port
+sudo kill -9 $(sudo lsof -t -i:3000)
+```
+
+#### Docker Permission Issues
+
+If you encounter Docker permission issues:
+
+```bash
+# Add your user to the docker group
+sudo usermod -aG docker $USER
+
+# Apply the changes (requires logout/login)
+newgrp docker
+
+# Or run Docker commands with sudo
+sudo docker-compose up -d
+```
+
+### Checking Service Status
+
+To check if all services are running properly:
+
+```bash
+# Use the provided script
+./docs_new/isRunning.sh
+
+# Or check manually
+curl -I http://localhost:3000/api  # NestJS API
+curl -I http://localhost:9090      # Prometheus
+curl -I http://localhost:5601      # Kibana
+curl -I http://localhost:9200      # Elasticsearch
+nc -z localhost 5432               # PostgreSQL
+nc -z localhost 6379               # Redis
+```
+
+### Logs and Debugging
+
+To view logs for debugging:
+
+```bash
+# View NestJS application logs
+cd grok-nest-ms
+npm run start:dev
+
+# View Docker container logs
+sudo docker logs -f grok_cmd_postgres_1
+sudo docker logs -f grok_cmd_elasticsearch_1
+sudo docker logs -f grok_cmd_kibana_1
+
+# View all container logs
+sudo docker-compose logs -f
+```
+
+### Resetting the Environment
+
+If you need to completely reset the environment:
+
+```bash
+# Stop all services
+./docs_new/stopProject.sh
+
+# Remove all Docker containers, volumes, and networks
+sudo docker-compose down -v
+
+# Remove PostgreSQL data
+sudo docker volume rm grok_cmd_postgres_data
+
+# Start fresh
+./docs_new/startProject.sh
+```
 
 ## Next Steps
 

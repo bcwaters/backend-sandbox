@@ -1,5 +1,5 @@
 #!/bin/bash
-
+source .env
 # Set colors for output
 GREEN='\033[0;32m'
 RED='\033[0;31m'
@@ -9,7 +9,7 @@ CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 # Define project root directory
-PROJECT_ROOT="/home/bcwaters/repo/grok_cmd/grok_cmd"
+PROJECT_ROOT="$PROJECT_ROOT"
 NEST_DIR="${PROJECT_ROOT}/grok-nest-ms"
 
 echo -e "${BLUE}Starting Grok NestJS Microservices project...${NC}"
